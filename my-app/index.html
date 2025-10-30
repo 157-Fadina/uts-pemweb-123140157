@@ -4,10 +4,57 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-app</title>
+    <title>VoxFinder</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <header class="main-bar">
+        <navbar class="navbar">
+            <div class="container">
+                <a href="/" class="logo">VoxFinder</a>
+            </div>
+            <a href="#" class="playlist-button">
+                <span>Playlist</span>
+                <span class="playlist-count">1</span>
+            </a>
+        </navbar>
+    </header>     
+    
+    <main>
+        <section class="search-container">
+            
+            <h2>Temukan Musik Favorit Anda</h2>
+
+            <form id="search-form" class="search-form">
+                <div class="form-group-main">
+                    <input type="text" id="search-query" placeholder="Cari artis, album, atau lagu...">
+                    <select id="search-type">
+                        <option value="all">Semua</option>
+                        <option value="artist">Artis</option>
+                        <option value="album">Album</option>
+                        <option value="song">Lagu</option>
+                    </select>
+                    <button type="submit">Cari</button>
+                </div>
+            </form>
+
+            <div class="sort-controls">
+                <label for="sort-by">Urutkan berdasarkan:</label>
+                <select id="sort-by">
+                    <option value="relevance">Relevansi</option>
+                    <option value="popularity">Popularitas</option>
+                    <option value="newest">Terbaru</option>
+                </select>
+            </div>
+
+        </section>
+
+        <section id="results-container" class="results-container">
+            <p>Hasil pencarian akan muncul di sini...</p>
+        </section>
+
+    </main>
   </body>
 </html>
