@@ -1,35 +1,75 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import React from 'react';
+import { 
+  Navbar, 
+  Container, 
+  Button, 
+  Form, 
+  InputGroup 
+} from 'react-bootstrap';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* INI ADALAH NAVBAR ANDA (versi React-Bootstrap) */}
+      <Navbar bg="dark" data-bs-theme="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="/">VoxFinder</Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Button variant="warning">
+              Playlist <span className="badge bg-secondary ms-1">1</span>
+            </Button>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {/* INI ADALAH MAIN CONTENT ANDA */}
+      <main>
+        <Container className="mt-4">
+          <section className="p-4 bg-light rounded shadow-sm text-center">
+            <h2>Temukan Musik Favorit Anda</h2>
+
+            {/* INI ADALAH SEARCH FORM ANDA (versi React-Bootstrap) */}
+            <Form>
+              <InputGroup className="my-3">
+                <Form.Control
+                  placeholder="Cari artis, album, atau lagu..."
+                />
+                <Form.Select style={{ maxWidth: '120px' }}>
+                  <option value="all">Semua</option>
+                  <option value="artist">Artis</option>
+                  <option value="album">Album</option>
+                  <option value="song">Lagu</option>
+                </Form.Select>
+                <Button variant="primary" type="submit">Cari</Button>
+              </InputGroup>
+            </Form>
+
+            <div className="d-flex justify-content-start">
+              <Form.Group className="d-flex align-items-center">
+                <Form.Label className="me-2 mb-0">Urutkan:</Form.Label>
+                <Form.Select size="sm" style={{ maxWidth: '150px' }}>
+                  <option value="relevance">Relevansi</option>
+                  <option value="popularity">Popularitas</option>
+                  <option value="newest">Terbaru</option>
+                </Form.Select>
+              </Form.Group>
+            </div>
+          </section>
+
+          <section className="mt-4">
+            <p>Hasil pencarian akan muncul di sini...</p>
+          </section>
+        </Container>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
