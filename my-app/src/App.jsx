@@ -1,10 +1,7 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
 import { 
   Navbar, 
   Container, 
@@ -16,8 +13,7 @@ import {
 function App() {
   return (
     <>
-      {/* INI ADALAH NAVBAR ANDA (versi React-Bootstrap) */}
-      <Navbar bg="dark" data-bs-theme="dark" expand="lg">
+      <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="main-bar">
         <Container>
           <Navbar.Brand href="/">VoxFinder</Navbar.Brand>
           <Navbar.Toggle />
@@ -29,13 +25,11 @@ function App() {
         </Container>
       </Navbar>
 
-      {/* INI ADALAH MAIN CONTENT ANDA */}
       <main>
         <Container className="mt-4">
-          <section className="p-4 bg-light rounded shadow-sm text-center">
+          <section className="p-4 bg-light rounded shadow-sm text-center search-container">
             <h2>Temukan Musik Favorit Anda</h2>
 
-            {/* INI ADALAH SEARCH FORM ANDA (versi React-Bootstrap) */}
             <Form>
               <InputGroup className="my-3">
                 <Form.Control
