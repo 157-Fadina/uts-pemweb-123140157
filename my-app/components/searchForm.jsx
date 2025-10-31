@@ -49,10 +49,10 @@ function SearchForm() {
             value={mediaType}
             onChange={(e) => setMediaType(e.target.value)}
           >
-            <option value="all">Semua</option>
-            <option value="music">Music</option>
-            <option value="movie">Movie</option>
-            <option value="podcast">Podcast</option>
+            <option value="all">All</option>
+            <option value="track_name">Track Name</option>
+            <option value="artist">Artist</option>
+            <option value="price">Price</option>
           </Form.Select>
           
           <Button variant="primary" type="submit">Cari</Button>

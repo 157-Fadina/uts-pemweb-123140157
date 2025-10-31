@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import SearchForm from '../components/searchForm';
-import Header from '../components/header';
-
+import SearchForm from '../components/searchForm.jsx';
+import Header from '../components/header.jsx';
 import { Container } from 'react-bootstrap';
+import HeroCarousel from '../components/hero.jsx';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Header />
 
       <main>
+        <HeroCarousel />
         <Container className="mt-4">
           
           <SearchForm />
