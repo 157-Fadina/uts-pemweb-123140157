@@ -1,3 +1,4 @@
+/* === GLOBAL STYLE === */
 body {
   font-family: sans-serif;
   margin: 0;
@@ -10,11 +11,16 @@ body {
   padding: 0 15px;
 }
 
+/* === HEADER / NAVBAR === */
 .main-bar {
   background-color: #333;
   color: white;
   padding: 1rem 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar.main-bar {
+  margin-top: 0;
 }
 
 .playlist-count {
@@ -26,12 +32,33 @@ body {
   font-weight: bold;
 }
 
+/* === SEARCH SECTION === */
 .search-container {
   background-color: white;
   padding: 2rem;
   margin-top: 2rem;
   border-radius: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.search-container h2 {
   text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-container input,
+.search-container select {
+  text-align: left;
+  z-index: 1;
+  position: relative;
+}
+
+/* === INPUT GROUP (FORM) === */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .input-group .form-control {
@@ -40,14 +67,22 @@ body {
   padding: 0.5rem 1rem;
   font-size: 1rem;
 }
-.input-group .btn-primary{
-  background-color: #928828; 
+
+.input-group .btn-primary {
+  background-color: #928828;
+  border: none;
 }
 
 .input-group .btn-primary:hover {
-  background-color: #4c440f; 
+  background-color: #4c440f;
 }
 
+/* Select media type (All, Artist, dsb) */
+.media-type-select {
+  max-width: 120px;
+}
+
+/* === SORT DAN HASIL === */
 .sort-controls {
   margin-top: 1.5rem;
   text-align: left;
@@ -58,22 +93,12 @@ body {
   padding: 1rem;
 }
 
-.navbar.main-bar {
-  margin-top: 0;
+.results-placeholder {
+  color: rgb(255, 244, 244);
+  font-size: 1.2rem;
 }
 
-.tombol-cari-kustom {
-  background-color: #aca632;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.tombol-cari-kustom:hover {
-  background-color: #927d28;
-}
-
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .input-group {
     flex-direction: column;
@@ -85,8 +110,26 @@ body {
     max-width: none !important;
   }
 
+  .media-type-select {
+    max-width: 100%; /* full width di layar kecil */
+  }
+
   .sort-controls {
     text-align: center;
   }
 
+  .search-container {
+    padding: 1rem;
+  }
 }
+
+@media (max-width: 576px) {
+  .search-container {
+    padding: 0.8rem;
+  }
+
+  .search-container h2 {
+    font-size: 1.2rem;
+  }
+}
+

@@ -10,7 +10,7 @@
   background-size: cover;
   background-position: center;
   filter: brightness(40%); /* Membuat gambar sedikit lebih gelap agar teks menonjol */
-  transition: transform 0.3s ease-in-out; /* Transisi untuk slide */
+  transition: transform 0.2s ease-in-out; /* Transisi untuk slide */
 }
 
 .hero-carousel .carousel-item {
@@ -33,7 +33,7 @@
 }
 
 /* Responsif */
-@media (max-width: 768px) {
+@media (max-width: 786px) {
   .hero-carousel,
   .hero-carousel .carousel-item {
     height: 400px;

@@ -18,7 +18,9 @@ function App() {
           <SearchForm />
 
           <section className="mt-4">
-            <p>Hasil pencarian akan muncul di sini...</p>
+            <p className="results-placeholder">
+              Hasil pencarian akan muncul di sini...
+            </p>
           </section>
 
         </Container>
