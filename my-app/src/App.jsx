@@ -1,31 +1,63 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import SearchForm from '../components/searchForm.jsx';
-import Header from '../components/header.jsx';
-import { Container } from 'react-bootstrap';
-import HeroCarousel from '../components/hero.jsx';
+import React, { useState } from "react";
+import SearchForm from "./components/SearchForm.jsx";
+import ResultsTable from "./components/ResultsTable.jsx";
+import Header from "./components/Header.jsx";
+import Hero from "./components/HeroCarousel.jsx";
+import "./App.css"; 
+
 
 function App() {
+  const [results, setResults] = useState([]);      
+  const [loading, setLoading] = useState(false);    
+  const [error, setError] = useState(null);   
+
+  const handleSearch = async (searchParams) => {
+    const { term, media, sort, limit } = searchParams;
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const url = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&media=${media}&limit=${limit}`;
+
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Gagal memuat data dari API.");
+
+      const data = await response.json();
+
+      let sortedResults = data.results;
+
+      if (sort === "releaseDate") {
+        sortedResults = sortedResults.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+      } else if (sort === "collectionPrice") {
+        sortedResults = sortedResults.sort((a, b) => (b.collectionPrice || 0) - (a.collectionPrice || 0));
+      }
+
+      setResults(sortedResults);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <>
-      <Header />
+    <div className="App">
+      <main className="container">
+        <SearchForm onSearch={handleSearch} />
 
-      <main>
-        <HeroCarousel />
-        <Container className="mt-4">
-          
-          <SearchForm />
+        {loading && <p className="text-center text-light mt-3">🔄 Sedang memuat...</p>}
+        {error && <p className="text-center text-danger mt-3">❌ {error}</p>}
 
-          <section className="mt-4">
-            <p className="results-placeholder">
-              Hasil pencarian akan muncul di sini...
-            </p>
-          </section>
+        {!loading && !error && results.length > 0 && (
+          <ResultsTable results={results} />
+        )}
 
-        </Container>
+        {!loading && !error && results.length === 0 && (
+          <p className="results-placeholder">Hasil pencarian akan muncul di sini...</p>
+        )}
       </main>
-    </>
+    </div>
   );
 }
 

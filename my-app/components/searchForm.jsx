@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 
-function SearchForm() {
+function SearchForm(onSearch) {
   const [searchTerm, setSearchTerm] = useState('');
   const [mediaType, setMediaType] = useState('all');
   const [sortBy, setSortBy] = useState('relevance');
@@ -9,6 +9,8 @@ function SearchForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    onSearch(searchParams);
+    
 
     const searchParams = {
       term: searchTerm,

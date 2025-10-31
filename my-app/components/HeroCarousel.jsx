@@ -1,7 +1,6 @@
 import React from 'react';
 import { Carousel, Container } from 'react-bootstrap';
-import './hero.css'; // File CSS terpisah
-// Impor gambar Anda
+import './hero.css';
 import img1 from "/src/assets/music-hero-1.jpg";
 import img2 from "/src/assets/music-hero-2.png";
 import img3 from "/src/assets/music-hero-3.jpg";
