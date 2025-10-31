@@ -19,7 +19,7 @@ function App() {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Button variant="warning">
-              Playlist <span className="badge bg-secondary ms-1">1</span>
+              Playlist <span className="badge bg-secondary ms-1">0</span>
             </Button>
           </Navbar.Collapse>
         </Container>
