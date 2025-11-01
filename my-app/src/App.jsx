@@ -43,6 +43,9 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+      <Hero />
+
       <main className="container">
         <SearchForm onSearch={handleSearch} />
 

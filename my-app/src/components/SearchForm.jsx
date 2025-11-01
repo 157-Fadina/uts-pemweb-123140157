@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 
-function SearchForm(onSearch) {
+function SearchForm({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [mediaType, setMediaType] = useState('all');
   const [sortBy, setSortBy] = useState('relevance');
   const [limit, setLimit] = useState(25);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    onSearch(searchParams);
-    
+    event.preventDefault();    
 
     const searchParams = {
       term: searchTerm,
@@ -19,6 +17,7 @@ function SearchForm(onSearch) {
       limit: limit
     };
 
+    onSearch(searchParams);
     console.log('Mencari dengan parameter:', searchParams);
   };
 
