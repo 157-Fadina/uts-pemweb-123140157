@@ -2,7 +2,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background-color: #1c1c1c;
+  background-color: #ffffff;
 }
 
 .container {
@@ -96,6 +96,117 @@ body {
 .results-placeholder {
   color: rgb(255, 244, 244);
   font-size: 1.2rem;
+}
+
+.results-grid-container {
+  display: grid;
+  /* Membuat kolom yang responsif secara otomatis */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem; /* Jarak antar kartu */
+  margin-top: 1.5rem;
+}
+
+.song-card {
+  background-color: #4a3c5c; /* Warna ungu dari gambar */
+  border-radius: 12px;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  overflow: hidden; /* Mencegah konten keluar */
+}
+
+.song-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+}
+
+.song-card-artwork {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0; /* Mencegah gambar menyusut */
+}
+
+.song-card-info {
+  flex-grow: 1;
+  min-width: 0; /* Trik agar text-overflow berfungsi */
+}
+
+.song-card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Memberi ... jika teks terlalu panjang */
+  margin-bottom: 0.25rem;
+}
+
+.song-card-artist {
+  font-size: 0.9rem;
+  color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
+}
+
+.song-card-price {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.song-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.song-card-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.song-card-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Memperbaiki warna teks 'Hasil Pencarian' yang pudar */
+.results-container h3.text-light {
+  color: white !important;
+}
+
+/* Placeholder agar lebih jelas */
+.results-placeholder {
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+}
+
+/* Audio player tersembunyi */
+.main-audio-player {
+  position: fixed;
+  bottom: -100px; /* Sembunyikan di luar layar */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  opacity: 0;
 }
 
 /* === RESPONSIVE DESIGN === */

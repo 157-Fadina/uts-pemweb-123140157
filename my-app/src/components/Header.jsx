@@ -5,7 +5,8 @@ import {
   Button
 } from 'react-bootstrap';
 
-function Header() {
+// Terima props playlistCount
+function Header({ playlistCount }) {
   return (
     <Navbar bg="grey" data-bs-theme="dark" expand="lg" className="main-bar">
       <Container>
@@ -13,7 +14,8 @@ function Header() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Button variant="warning">
-            Playlist <span className="badge bg-secondary ms-1">0</span>
+            {/* Tampilkan count dari props */}
+            Playlist <span className="badge bg-secondary ms-1">{playlistCount}</span>
           </Button>
         </Navbar.Collapse>
       </Container>
@@ -22,4 +24,3 @@ function Header() {
 }
 
 export default Header;
-

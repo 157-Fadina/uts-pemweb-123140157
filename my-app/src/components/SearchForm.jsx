@@ -8,7 +8,7 @@ function SearchForm({ onSearch }) {
   const [limit, setLimit] = useState(25);
 
   const handleSubmit = (event) => {
-    event.preventDefault();    
+    event.preventDefault();
 
     const searchParams = {
       term: searchTerm,
@@ -39,7 +39,8 @@ function SearchForm({ onSearch }) {
             />
           </Col>
 
-          <Col xs={15} md={3}>
+          {/* PERBAIKAN: xs={15} diubah menjadi xs={12}. Grid Bootstrap hanya 12 kolom. */}
+          <Col xs={12} md={3}> 
             <Form.Select
               id="mediaType"
               name="mediaType"
@@ -49,7 +50,7 @@ function SearchForm({ onSearch }) {
             >
               <option value="all">Semua</option>
               <option value="artist">Artis</option>
-              <option value="Song">Lagu</option>
+              <option value="song">Lagu</option>
               <option value="album">Album</option>
             </Form.Select>
           </Col>
