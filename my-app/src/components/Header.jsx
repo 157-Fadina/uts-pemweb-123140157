@@ -2,22 +2,19 @@ import React from 'react';
 import { 
   Navbar, 
   Container, 
-  Button
+  Button,
+  Badge 
 } from 'react-bootstrap';
 
-// Terima props playlistCount
-function Header({ playlistCount }) {
+function Header({ playlistCount, onShowPlaylist }) {
   return (
-    <Navbar bg="grey" data-bs-theme="dark" expand="lg" className="main-bar">
+    <Navbar bg="#4a3c5c" data-bs-theme="dark" expand="lg" className="main-bar">
       <Container>
         <Navbar.Brand href="/">VoxFinder</Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Button variant="warning">
-            {/* Tampilkan count dari props */}
-            Playlist <span className="badge bg-secondary ms-1">{playlistCount}</span>
+          <Button variant="warning" onClick={onShowPlaylist}>
+            Playlist 
+            <Badge bg="dark" className="ms-1">{playlistCount}</Badge>
           </Button>
-        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

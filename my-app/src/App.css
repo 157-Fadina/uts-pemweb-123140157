@@ -2,7 +2,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #3b363c;
 }
 
 .container {
@@ -13,7 +13,7 @@ body {
 
 /* === HEADER / NAVBAR === */
 .main-bar {
-  background-color: #333;
+  background-color: #4a3c5c;
   color: white;
   padding: 1rem 0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -209,6 +209,46 @@ body {
   opacity: 0;
 }
 
+.skeleton {
+  pointer-events: none;
+}
+
+.skeleton-box,
+.skeleton-line {
+  background-color: #3a3a3a; /* Warna dasar skeleton */
+  background-image: linear-gradient(
+    90deg,
+    #3a3a3a 0%,
+    #4a4a4a 50%,
+    #3a3a3a 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 4px;
+  /* Animasi shimmer baru */
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-line {
+  height: 12px;
+  margin-bottom: 8px;
+}
+
+.song-card.skeleton .song-card-artwork {
+  height: 100px;
+  width: 100px;
+}
+
+.song-card.skeleton .song-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.skeleton-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
 /* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .input-group {
@@ -244,3 +284,11 @@ body {
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
