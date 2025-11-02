@@ -39,7 +39,6 @@ function SearchForm({ onSearch }) {
             />
           </Col>
 
-          {/* PERBAIKAN: xs={15} diubah menjadi xs={12}. Grid Bootstrap hanya 12 kolom. */}
           <Col xs={12} md={3}> 
             <Form.Select
               id="mediaType"
@@ -48,11 +47,12 @@ function SearchForm({ onSearch }) {
               value={mediaType}
               onChange={(e) => setMediaType(e.target.value)}
             >
-              <option value="all">Semua</option>
-              <option value="artwork">Artwork</option>
-              <option value="artist">Artis</option>
-              <option value="TrackName">Nama Track</option>
-              <option value="price">Harga</option>
+              <option value="all">Semua Kategori</option>
+              <option value="music">Musik</option>
+              <option value="movie">Film</option>
+              <option value_alias="podcast">Podcast</option>
+              <option value="musicVideo">Video Musik</option>
+              <option value="audiobook">Audiobook</option>
             </Form.Select>
           </Col>
 

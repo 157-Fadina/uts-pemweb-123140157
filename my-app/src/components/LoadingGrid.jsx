@@ -1,8 +1,6 @@
 import React from 'react';
-// 1. Ganti import ini
 import PlaceholderCard from './PlaceholderCard.jsx';
 
-// 2. Ganti nama fungsi ini
 function LoadingGrid() {
   const skeletonCount = Array(8).fill(0);
 
@@ -12,7 +10,6 @@ function LoadingGrid() {
       
       <div className="results-grid-container">
         {skeletonCount.map((_, index) => (
-          // 3. Ganti nama komponen ini
           <PlaceholderCard key={index} />
         ))}
       </div>
@@ -20,5 +17,4 @@ function LoadingGrid() {
   );
 }
 
-// 4. Ganti nama export ini
 export default LoadingGrid;

@@ -1,8 +1,7 @@
-/* === GLOBAL STYLE === */
 body {
   font-family: sans-serif;
   margin: 0;
-  background-color: #3b363c;
+  background-color: #c7c7c7;
 }
 
 .container {
@@ -11,7 +10,6 @@ body {
   padding: 0 15px;
 }
 
-/* === HEADER / NAVBAR === */
 .main-bar {
   background-color: #4a3c5c;
   color: white;
@@ -100,14 +98,13 @@ body {
 
 .results-grid-container {
   display: grid;
-  /* Membuat kolom yang responsif secara otomatis */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.25rem; /* Jarak antar kartu */
   margin-top: 1.5rem;
 }
 
 .song-card {
-  background-color: #4a3c5c; /* Warna ungu dari gambar */
+  background-color: #4a3c5c;
   border-radius: 12px;
   padding: 1rem;
   color: white;
@@ -129,12 +126,12 @@ body {
   height: 80px;
   border-radius: 8px;
   object-fit: cover;
-  flex-shrink: 0; /* Mencegah gambar menyusut */
+  flex-shrink: 0;
 }
 
 .song-card-info {
   flex-grow: 1;
-  min-width: 0; /* Trik agar text-overflow berfungsi */
+  min-width: 0; 
 }
 
 .song-card-title {
@@ -142,7 +139,7 @@ body {
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Memberi ... jika teks terlalu panjang */
+  text-overflow: ellipsis;
   margin-bottom: 0.25rem;
 }
 
@@ -187,22 +184,19 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Memperbaiki warna teks 'Hasil Pencarian' yang pudar */
 .results-container h3.text-light {
   color: white !important;
 }
 
-/* Placeholder agar lebih jelas */
 .results-placeholder {
   color: #888;
   font-size: 1.2rem;
   margin-top: 3rem;
 }
 
-/* Audio player tersembunyi */
 .main-audio-player {
   position: fixed;
-  bottom: -100px; /* Sembunyikan di luar layar */
+  bottom: -100px;
   left: 0;
   width: 100%;
   z-index: 1000;
@@ -215,7 +209,7 @@ body {
 
 .skeleton-box,
 .skeleton-line {
-  background-color: #3a3a3a; /* Warna dasar skeleton */
+  background-color: #3a3a3a;
   background-image: linear-gradient(
     90deg,
     #3a3a3a 0%,
@@ -224,7 +218,6 @@ body {
   );
   background-size: 200% 100%;
   border-radius: 4px;
-  /* Animasi shimmer baru */
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
@@ -249,7 +242,6 @@ body {
   border-radius: 50%;
 }
 
-/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .input-group {
     flex-direction: column;
@@ -262,7 +254,7 @@ body {
   }
 
   .media-type-select {
-    max-width: 100%; /* full width di layar kecil */
+    max-width: 100%;
   }
 
   .sort-controls {

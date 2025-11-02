@@ -1,9 +1,4 @@
 import React from "react";
-// Hapus 'Row' dan 'Col' karena tidak terpakai di sini
-// import { Row, Col } from "react-bootstrap"; 
-
-// --- Komponen Kartu (desain baru) ---
-// 1. Terima 'playingTrackId' sebagai prop
 function SongCard({ track, onPlay, onAddToPlaylist, playingTrackId }) {
   
   const artwork = track.artworkUrl100 || 'https://placehold.co/100x100/4a3c5c/FFF?text=?';
@@ -17,10 +12,8 @@ function SongCard({ track, onPlay, onAddToPlaylist, playingTrackId }) {
     price = `$${track.collectionPrice}`;
   }
 
-  // 2. Modifikasi handlePlayClick
   const handlePlayClick = () => {
     if (track.previewUrl) {
-      // Kirim SELURUH objek 'track', bukan hanya URL-nya
       onPlay(track); 
     } else {
       alert("Preview tidak tersedia untuk lagu ini.");
@@ -31,7 +24,6 @@ function SongCard({ track, onPlay, onAddToPlaylist, playingTrackId }) {
     onAddToPlaylist(track);
   };
 
-  // 3. Cek apakah lagu ini sedang diputar
   const isPlaying = (playingTrackId === track.trackId);
 
   return (
@@ -45,14 +37,12 @@ function SongCard({ track, onPlay, onAddToPlaylist, playingTrackId }) {
       <div className="song-card-actions">
         <button className="song-card-btn" title={isPlaying ? "Pause" : "Play"} onClick={handlePlayClick}>
           
-          {/* 4. Tampilkan ikon Play atau Pause berdasarkan state 'isPlaying' */}
           {isPlaying ? (
             // Ikon Pause (SVG)
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M 3 1 C 2.4477153 1 2 1.4477153 2 2 L 2 14 C 2 14.552285 2.4477153 15 3 15 L 6 15 C 6.5522847 15 7 14.552285 7 14 L 7 2 C 7 1.4477153 6.5522847 1 6 1 L 3 1 z M 10 1 C 9.4477153 1 9 1.4477153 9 2 L 9 14 C 9 14.552285 9.4477153 15 10 15 L 13 15 C 13.552285 15 14 14.552285 14 14 L 14 2 C 14 1.4477153 13.552285 1 13 1 L 10 1 z" />
             </svg>
           ) : (
-            // Ikon Play (SVG)
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 1.71399C3 1.05216 3.73117 0.624731 4.30154 0.957917L13.6985 6.24401C14.267 6.57606 14.267 7.42394 13.6985 7.75599L4.30154 13.0421C3.73117 13.3753 3 12.9478 3 12.286V1.71399Z"/>
             </svg>
@@ -69,13 +59,9 @@ function SongCard({ track, onPlay, onAddToPlaylist, playingTrackId }) {
   );
 }
 
-
-// --- Komponen Utama (menggantikan Table) ---
-// 5. Terima 'playingTrackId' dan teruskan ke SongCard
 function ResultsDisplay({ results, onPlay, onAddToPlaylist, playingTrackId }) {
   return (
     <section className="results-container">
-      {/* Judul ini sepertinya salah warna, harusnya 'text-light' di body gelap */}
       <h3 className="text-light mb-3">Hasil Pencarian</h3> 
       
       <div className="results-grid-container">
@@ -85,7 +71,7 @@ function ResultsDisplay({ results, onPlay, onAddToPlaylist, playingTrackId }) {
             track={item} 
             onPlay={onPlay}
             onAddToPlaylist={onAddToPlaylist}
-            playingTrackId={playingTrackId} // Teruskan prop
+            playingTrackId={playingTrackId}
           />
         ))}
       </div>

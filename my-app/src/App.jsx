@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Offcanvas, Badge, ListGroup, Image, Button, Alert } from "react-bootstrap"; // Tambahkan Button di sini
+import { Offcanvas, Badge, ListGroup, Image, Button, Alert } from "react-bootstrap";
 import SearchForm from "./components/SearchForm.jsx";
-import ResultsTable from "./components/ResultsTable.jsx"; // Ini akan me-load ResultsDisplay
+import ResultsTable from "./components/ResultsTable.jsx"; 
 import Header from "./components/Header.jsx";
 import Hero from "./components/HeroCarousel.jsx";
 import LoadingGrid from "./components/LoadingGrid.jsx";
@@ -47,19 +47,15 @@ function App() {
     }
   };
 
-  // --- (MULAI) FUNGSI BARU: HAPUS DARI PLAYLIST ---
   const handleRemoveFromPlaylist = (trackIdToRemove) => {
     setPlaylist(prevPlaylist => prevPlaylist.filter(track => track.trackId !== trackIdToRemove));
     
-    // Jika lagu yang dihapus sedang diputar, hentikan pemutarannya
     if (playingTrackId === trackIdToRemove && currentAudio) {
       currentAudio.pause();
       setCurrentAudio(null);
       setPlayingTrackId(null);
     }
   };
-  // --- (SELESAI) FUNGSI BARU ---
-
 
   const handleClosePlaylist = () => setShowPlaylist(false);
   const handleShowPlaylist = () => setShowPlaylist(true);
@@ -99,10 +95,8 @@ function App() {
       <main className="container">
         <SearchForm onSearch={handleSearch} />
 
-        {/* 3. Tampilkan Skeleton (Loading Grid) saat loading */}
         {loading && <LoadingGrid />}
 
-        {/* 4. Tampilkan Alert Box saat error */}
         {error && (
           <Alert variant="danger" className="mt-4">
             <Alert.Heading>❌ Terjadi Kesalahan</Alert.Heading>
@@ -110,7 +104,6 @@ function App() {
           </Alert>
         )}
 
-        {/* 5. Tampilkan hasil jika TIDAK loading, TIDAK error, dan ada hasil */}
         {!loading && !error && results.length > 0 && (
           <ResultsTable 
             results={results}
@@ -120,13 +113,11 @@ function App() {
           />
         )}
 
-        {/* 6. Tampilkan placeholder jika TIDAK loading, TIDAK error, dan hasil kosong */}
         {!loading && !error && results.length === 0 && (
           <p className="results-placeholder">
             Hasil pencarian akan muncul di sini...
           </p>
         )}
-        {/* --- (SELESAI) BAGIAN YANG DIGANTI --- */}
       </main>
 
       <Offcanvas 
@@ -156,8 +147,8 @@ function App() {
               {playlist.map(track => (
                 <ListGroup.Item 
                   key={track.trackId} 
-                  className="d-flex justify-content-between align-items-center bg-transparent text-white border-secondary mb-2 p-2 rounded" // Tambahkan mb-2 p-2 rounded untuk tampilan kartu
-                  style={{ backgroundColor: playingTrackId === track.trackId ? '#4a3c5c' : 'transparent' }} // Highlight lagu yang sedang diputar
+                  className="d-flex justify-content-between align-items-center bg-transparent text-white border-secondary mb-2 p-2 rounded" 
+                  style={{ backgroundColor: playingTrackId === track.trackId ? '#4a3c5c' : 'transparent' }} 
                 >
                   <Image src={track.artworkUrl100} rounded style={{width: '60px', height: '60px', marginRight: '15px'}} />
                   <div className="flex-grow-1" style={{minWidth: 0}}>
@@ -165,12 +156,11 @@ function App() {
                     <div className="text-muted text-truncate" style={{fontSize: '0.8rem'}}>{track.artistName}</div>
                   </div>
                   
-                  {/* --- (MULAI) TOMBOL PLAY & SAMPAH DI PLAYLIST --- */}
                   <div className="d-flex align-items-center">
-                    {track.previewUrl && ( // Tampilkan tombol play hanya jika ada preview
+                    {track.previewUrl && ( 
                       <Button 
                         variant="link" 
-                        className="text-white p-0 me-2" // p-0 untuk menghilangkan padding bawaan Button
+                        className="text-white p-0 me-2"
                         onClick={() => handlePlayTrack(track)}
                       >
                         {playingTrackId === track.trackId ? (
@@ -186,7 +176,7 @@ function App() {
                     )}
                     <Button 
                       variant="link" 
-                      className="text-danger p-0" // p-0 untuk menghilangkan padding bawaan Button
+                      className="text-danger p-0" 
                       onClick={() => handleRemoveFromPlaylist(track.trackId)}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -194,8 +184,6 @@ function App() {
                       </svg>
                     </Button>
                   </div>
-                  {/* --- (SELESAI) TOMBOL PLAY & SAMPAH DI PLAYLIST --- */}
-
                 </ListGroup.Item>
               ))}
             </ListGroup>

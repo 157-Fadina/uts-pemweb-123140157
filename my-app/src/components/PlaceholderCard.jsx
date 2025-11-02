@@ -1,10 +1,8 @@
 import React from 'react';
 
-// Ganti nama fungsi ini
 function PlaceholderCard() {
   return (
     <div className="song-card skeleton">
-      {/* ... (kode skeleton-box Anda tetap sama) ... */}
       <div className="song-card-artwork skeleton-box"></div>
       
       <div className="song-card-info">
@@ -21,5 +19,4 @@ function PlaceholderCard() {
   );
 }
 
-// Ganti nama export ini
 export default PlaceholderCard;
