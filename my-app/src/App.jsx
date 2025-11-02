@@ -121,7 +121,8 @@ function App() {
         playlistCount={playlist.length} 
         onShowPlaylist={handleShowPlaylist} 
       />
-      
+      <main>
+
       <Hero />
 
       <main className="container">
@@ -223,7 +224,7 @@ function App() {
           )}
         </Offcanvas.Body>
       </Offcanvas>
-
+    </main>
     </div>
   );
 }
