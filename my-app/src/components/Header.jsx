@@ -7,7 +7,7 @@ function Header({ playlistCount, onShowPlaylist }) {
       <Container>
         <Navbar.Brand href="/" className="d-flex align-items-center">
           <img
-            src="./src/assets/LOGO.png"
+            src="./LOGO.png"
             alt="Logo"
             width="35"
             height="35"
