@@ -61,45 +61,53 @@ function App() {
   const handleClosePlaylist = () => setShowPlaylist(false);
   const handleShowPlaylist = () => setShowPlaylist(true);
 
-  // GANTI FUNGSI LAMA ANDA DENGAN YANG INI:
-
   const handleSearch = async (searchParams) => {
-    const { term, media, sort, limit } = searchParams;
-    setLoading(true);
-    setError(null);
+  const { term, media, sort, limit } = searchParams;
+  setLoading(true);
+  setError(null);
 
-     try {
-      const url = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&media=${media}&limit=${limit}`;
+  if (!term || term.trim() === "") {
+    setError("Masukkan kata kunci pencarian terlebih dahulu.");
+    setLoading(false);
+    return;
+  }
 
-      const response = await fetch(url);
-      if (!response.ok) throw new Error("Gagal memuat data dari API.");
-      const data = await response.json();
-      
-      let sortedResults = data.results;
-      const getPrice = (item) => {
-        return item.trackPrice || item.collectionPrice || 0;
-     };
+  
+  try {
+    const mediaParam = media === "all" ? "" : `&media=${media}`;
+    const url = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}${mediaParam}&limit=${limit}`;
+    console.log("🔍 Fetching URL:", url);
+    
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Gagal memuat data dari API.");
+    const data = await response.json();
 
-      if (sort === "releaseDate_desc") {
-
-      sortedResults = sortedResults.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-      } else if (sort === "releaseDate_asc") {
-
-        sortedResults = sortedResults.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
-      } else if (sort === "price_desc") {
-
-        sortedResults = sortedResults.sort((a, b) => getPrice(b) - getPrice(a));
-      } else if (sort === "price_asc") {
-
-        sortedResults = sortedResults.sort((a, b) => getPrice(a) - getPrice(b));
-      }
-      setResults(sortedResults);
-     } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    if (data.results.length === 0) {
+      setError("Tidak ditemukan hasil untuk pencarian ini.");
+      setResults([]);
+      return;
     }
-  };
+
+    let sortedResults = data.results;
+    const getPrice = (item) => item.trackPrice || item.collectionPrice || 0;
+
+    if (sort === "releaseDate_desc")
+      sortedResults.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+    else if (sort === "releaseDate_asc")
+      sortedResults.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+    else if (sort === "price_desc")
+      sortedResults.sort((a, b) => getPrice(b) - getPrice(a));
+    else if (sort === "price_asc")
+      sortedResults.sort((a, b) => getPrice(a) - getPrice(b));
+
+    setResults(sortedResults);
+  } catch (err) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="App">

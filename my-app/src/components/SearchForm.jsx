@@ -3,7 +3,7 @@ import { Button, Form, Row, Col } from 'react-bootstrap';
 
 function SearchForm({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [mediaType, setMediaType] = useState('all');
+  const [mediaType, setMediaType] = useState('music');
   const [sortBy, setSortBy] = useState('relevance');
   const [limit, setLimit] = useState(25);
 
@@ -50,7 +50,7 @@ function SearchForm({ onSearch }) {
               <option value="all">Semua Kategori</option>
               <option value="music">Musik</option>
               <option value="movie">Film</option>
-              <option value_alias="podcast">Podcast</option>
+              <option value="podcast">Podcast</option>
               <option value="musicVideo">Video Musik</option>
               <option value="audiobook">Audiobook</option>
             </Form.Select>
