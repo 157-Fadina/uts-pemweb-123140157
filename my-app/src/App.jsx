@@ -5,6 +5,7 @@ import ResultsTable from "./components/ResultsTable.jsx";
 import Header from "./components/Header.jsx";
 import Hero from "./components/HeroCarousel.jsx";
 import LoadingGrid from "./components/LoadingGrid.jsx";
+import Footer from "./components/footer.jsx";
 import "./App.css"; 
 
 function App() {
@@ -60,23 +61,40 @@ function App() {
   const handleClosePlaylist = () => setShowPlaylist(false);
   const handleShowPlaylist = () => setShowPlaylist(true);
 
+  // GANTI FUNGSI LAMA ANDA DENGAN YANG INI:
+
   const handleSearch = async (searchParams) => {
     const { term, media, sort, limit } = searchParams;
     setLoading(true);
     setError(null);
-    try {
+
+     try {
       const url = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&media=${media}&limit=${limit}`;
+
       const response = await fetch(url);
       if (!response.ok) throw new Error("Gagal memuat data dari API.");
       const data = await response.json();
+      
       let sortedResults = data.results;
-      if (sort === "releaseDate") {
-        sortedResults = sortedResults.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-      } else if (sort === "collectionPrice") {
-        sortedResults = sortedResults.sort((a, b) => (b.collectionPrice || 0) - (a.collectionPrice || 0));
+      const getPrice = (item) => {
+        return item.trackPrice || item.collectionPrice || 0;
+     };
+
+      if (sort === "releaseDate_desc") {
+
+      sortedResults = sortedResults.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+      } else if (sort === "releaseDate_asc") {
+
+        sortedResults = sortedResults.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+      } else if (sort === "price_desc") {
+
+        sortedResults = sortedResults.sort((a, b) => getPrice(b) - getPrice(a));
+      } else if (sort === "price_asc") {
+
+        sortedResults = sortedResults.sort((a, b) => getPrice(a) - getPrice(b));
       }
       setResults(sortedResults);
-    } catch (err) {
+     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
@@ -119,6 +137,7 @@ function App() {
           </p>
         )}
       </main>
+      <Footer />
 
       <Offcanvas 
         show={showPlaylist} 

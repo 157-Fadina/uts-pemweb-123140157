@@ -30,7 +30,6 @@ body {
   font-weight: bold;
 }
 
-/* === SEARCH SECTION === */
 .search-container {
   background-color: white;
   padding: 2rem;
@@ -52,7 +51,6 @@ body {
   position: relative;
 }
 
-/* === INPUT GROUP (FORM) === */
 .input-group {
   display: flex;
   flex-wrap: wrap;
@@ -75,12 +73,21 @@ body {
   background-color: #4c440f;
 }
 
-/* Select media type (All, Artist, dsb) */
+.btn .btn-cari-custom {
+  background-color: #7E57C2;
+  border-color: #7E57C2;
+  color: white; 
+}
+
+.btn .btn-cari-custom:hover {
+  background-color: #673AB7;
+  border-color: #673AB7;
+}
+
 .media-type-select {
   max-width: 120px;
 }
 
-/* === SORT DAN HASIL === */
 .sort-controls {
   margin-top: 1.5rem;
   text-align: left;
@@ -99,12 +106,12 @@ body {
 .results-grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.25rem; /* Jarak antar kartu */
+  gap: 1.25rem;
   margin-top: 1.5rem;
 }
 
 .song-card {
-  background-color: #4a3c5c;
+  background-color: #3f2d58;
   border-radius: 12px;
   padding: 1rem;
   color: white;

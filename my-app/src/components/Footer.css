@@ -1,0 +1,23 @@
+#root, .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.container {
+  flex-grow: 1;
+}
+
+.footer-container {
+  background-color: #e4d8fe; 
+  color: #888;
+  padding: 25px 0;
+  margin-top: 4rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.footer-container .text-muted {
+  margin: 0;
+  font-size: 0.9rem;
+}

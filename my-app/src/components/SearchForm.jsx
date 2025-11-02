@@ -27,7 +27,7 @@ function SearchForm({ onSearch }) {
 
       <Form onSubmit={handleSubmit}>
         <Row className="g-2 my-3 align-items-center">
-          <Col xs={12} md={6}>
+          <Col xs={12} md={5}>
             <Form.Control
               id="searchTerm"
               name="searchTerm"
@@ -39,7 +39,7 @@ function SearchForm({ onSearch }) {
             />
           </Col>
 
-          <Col xs={12} md={3}> 
+          <Col xs={12} md={4}> 
             <Form.Select
               id="mediaType"
               name="mediaType"
@@ -57,7 +57,7 @@ function SearchForm({ onSearch }) {
           </Col>
 
           <Col xs={12} md={3}>
-            <Button variant="primary" type="submit" className="w-100">
+            <Button type="submit" className="w-100 btn-cari-custom">
               Cari
             </Button>
           </Col>
@@ -69,14 +69,16 @@ function SearchForm({ onSearch }) {
           <Form.Label className="me-2 mb-0">Urutkan:</Form.Label>
           <Form.Select
             size="sm"
-            style={{ maxWidth: '150px' }}
+            style={{ maxWidth: '170px' }}
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
             name="sortBy"
           >
             <option value="relevance">Relevansi</option>
-            <option value="releaseDate">Tanggal Rilis</option>
-            <option value="collectionPrice">Harga</option>
+            <option value="releaseDate_desc">Rilis (Terbaru)</option>
+            <option value="releaseDate_asc">Rilis (Terlama)</option>
+            <option value="price_desc">Harga (Termahal)</option>
+            <option value="price_asc">Harga (Termurah)</option>
           </Form.Select>
         </Form.Group>
 
