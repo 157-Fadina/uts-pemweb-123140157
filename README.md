@@ -49,3 +49,7 @@ Untuk menjalankan proyek ini di komputer lokal Anda, ikuti langkah-langkah berik
     ```
 
 ## 📂 Struktur Proyek
+
+my-app/ ├── public/ │ └── (Aset statis) ├── src/ │ ├── assets/ │ │ └── (Gambar, ikon, dll.) │ ├── components/ │ │ ├── Header.jsx │ │ ├── HeroCarousel.jsx │ │ ├── SearchForm.jsx │ │ ├── ResultsTable.jsx │ │ ├── LoadingGrid.jsx │ │ └── Footer.jsx │ ├── App.css │ ├── App.jsx (Komponen utama) │ ├── index.css │ └── main.jsx (Entry point aplikasi) ├── .gitignore ├── index.html ├── package.json ├── README.md └── vite.config.js
+
+---
