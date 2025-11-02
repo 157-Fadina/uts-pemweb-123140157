@@ -5,7 +5,7 @@ import ResultsTable from "./components/ResultsTable.jsx";
 import Header from "./components/Header.jsx";
 import Hero from "./components/HeroCarousel.jsx";
 import LoadingGrid from "./components/LoadingGrid.jsx";
-import Footer from "./components/footer.jsx";
+import Footer from "./components/Footer.jsx";
 import "./App.css"; 
 
 function App() {
