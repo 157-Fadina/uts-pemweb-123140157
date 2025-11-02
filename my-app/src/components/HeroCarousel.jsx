@@ -27,8 +27,8 @@ function HeroCarousel() {
       <Carousel.Item>
         <div className="carousel-background" style={{ backgroundImage: `url(${img3})` }}></div>
         <Carousel.Caption className="hero-carousel-caption">
-          <h1 className="display-4">Bagikan Selera Musik Anda.</h1>
-          <p className="lead">Terhubung dengan teman dan lihat apa yang mereka dengarkan.</p>
+          <h1 className="display-4">Musik Sesuai Mood Kamu.</h1>
+          <p className="lead">Cari, dengarkan, dan simpan lagu yang cocok dengan suasana hatimu.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
