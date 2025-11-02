@@ -1,16 +1,18 @@
-# 🎵 VoxFinder - Aplikasi Eksplorasi Musik
+# 🎵 VoxFinder - Music Explorer
 
-Ini adalah proyek Ujian Tengah Semester (UTS) untuk mata kuliah Pemrograman Web.
+Ini adalah proyek Ujian Tengah Semester (UTS) untuk mata kuliah Pengembangan Aplikasi Web.
 
 ## 👤 Profil
 
 * **Nama:** Fadina Mustika Ratnanaingsih
 * **NIM:** 123140157
-* **Kelas:** RB
+* **Kelas:** RB - Pengembangan Aplikasi Web
 
 ---
 
 ## 📄 Deskripsi Proyek
+
+<img width="869" height="714" alt="LOGO" src="https://github.com/user-attachments/assets/2a46e89b-2278-4990-9c29-7a17293cc930" />
 
 **VoxFinder** adalah aplikasi web front-end yang dibuat menggunakan **React** dan **Vite**. Aplikasi ini berfungsi sebagai *dashboard* sederhana untuk mencari dan mengeksplorasi musik. Pengguna dapat melihat *highlight* musik melalui *carousel*, melakukan pencarian menggunakan formulir, dan melihat hasilnya dalam format tabel yang rapi.
 
