@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Offcanvas, Badge, ListGroup, Image, Button, Alert } from "react-bootstrap";
 import SearchForm from "./components/SearchForm.jsx";
 import ResultsTable from "./components/ResultsTable.jsx"; 
@@ -12,12 +12,18 @@ function App() {
   const [results, setResults] = useState([]);      
   const [loading, setLoading] = useState(false);    
   const [error, setError] = useState(null);   
-  const [playlist, setPlaylist] = useState([]); 
+  const [playlist, setPlaylist] = useState(() => {
+    const savedPlaylist = localStorage.getItem('myAppPlaylist');
+    return savedPlaylist ? JSON.parse(savedPlaylist) : [];
+  });
   const [showPlaylist, setShowPlaylist] = useState(false);
-
   const [currentAudio, setCurrentAudio] = useState(null); 
   const [playingTrackId, setPlayingTrackId] = useState(null); 
   
+  useEffect(() => {
+    localStorage.setItem('myAppPlaylist', JSON.stringify(playlist));
+  }, [playlist]);
+
   const handleAddTrack = (track) => {
     if (!playlist.find(item => item.trackId === track.trackId)) {
       setPlaylist(prevPlaylist => [...prevPlaylist, track]);
