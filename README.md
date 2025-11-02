@@ -79,7 +79,9 @@ Berikut adalah tampilan dari aplikasi VoxFinder (Desktop):
 <img width="1918" height="858" alt="image" src="https://github.com/user-attachments/assets/f292312e-0bb6-42eb-847c-926417786707" />
 
 Berikut adalah tampilan dari aplikasi VoxFinder (Mobile):
-
+<img width="828" height="1792" alt="IMG_1141" src="https://github.com/user-attachments/assets/960b6297-3fc5-4afe-a760-ef91b34e1bcf" />
+<img width="828" height="1792" alt="IMG_1142" src="https://github.com/user-attachments/assets/6ff39dcc-39a7-4732-94de-2b3e9ff0b34f" />
+<img width="828" height="1792" alt="IMG_1143" src="https://github.com/user-attachments/assets/6f864f2a-0328-4ef9-bc00-b49ebb17f6eb" />
 
 ---
 
